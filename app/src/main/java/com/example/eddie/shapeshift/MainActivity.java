@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout Profile_Section;
     private Button SignOut;
     private SignInButton SignIn;
+    private Button Startbutton;
     private TextView Name, Email;
     private ImageView Profile_Pic;
+    private ImageView FrtPhoto;
     private GoogleApiClient googleApiClient;
     private static final int REQ_CODE = 9001;
 
@@ -41,14 +43,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SignIn = (SignInButton) findViewById(R.id.bn_login);
         Name = (TextView) findViewById(R.id.name);
         Email = (TextView) findViewById(R.id.email);
+        FrtPhoto = (ImageView) findViewById(R.id.imageView_photo);
         Profile_Pic = (ImageView) findViewById(R.id.prof_pic);
+        Startbutton = (Button) findViewById(R.id.bn_get_fit);
         SignIn.setOnClickListener(this);
         SignOut.setOnClickListener(this);
         Profile_Section.setVisibility(View.GONE);
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();
+        Startbutton.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, InputCalcActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -92,10 +106,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             GoogleSignInAccount account = result.getSignInAccount();
             String name = account.getDisplayName();
             String email = account.getEmail();
-            String img_url = account.getPhotoUrl().toString();
+            //String img_url = account.getPhotoUrl().toString();
             Name.setText(name);
             Email.setText(email);
-            Glide.with(this).load(img_url).into(Profile_Pic);
+           // Glide.with(this).load(img_url).into(Profile_Pic);
             updateUI(true);
 
         }
@@ -112,11 +126,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (isLogin)
         {
             Profile_Section.setVisibility(View.VISIBLE);
+            FrtPhoto.setVisibility(View.GONE);
             SignIn.setVisibility(View.GONE);
         }
         else
         {
             Profile_Section.setVisibility(View.GONE);
+            FrtPhoto.setVisibility(View.VISIBLE);
             SignIn.setVisibility(View.VISIBLE);
         }
 

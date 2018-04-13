@@ -88,6 +88,12 @@
                 android:layout_height="wrap_content"
                 android:text="Logout Google Account" />
 
+            <Button
+                android:id="@+id/bn_get_fit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get Fit" />
+
         </LinearLayout>
 
     </LinearLayout>
@@ -106,6 +112,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="70dp"
+        android:id="@+id/imageView_photo"
         android:background="@drawable/heartshapeshift1" />
 
 

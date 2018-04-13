@@ -8,7 +8,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -73,11 +73,26 @@
             android:layout_marginTop="26dp"
             android:text=" Neck (Inches)" />
 
+        <TextView
+            android:id="@+id/textView_forearm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text=" Forearm (Inches)" />
+
+        <Button
+            android:id="@+id/bn_skip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:text="Skip" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="346dp"
-        android:layout_height="wrap_content"
+        android:layout_height="508dp"
+        android:contextClickable="false"
         android:orientation="vertical">
 
         <RadioButton
@@ -85,6 +100,7 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/edittext_wt"
+            android:layout_gravity=""
             android:layout_toStartOf="@+id/radiobn_female"
             android:checked="true"
             android:text="Male" />
@@ -112,7 +128,7 @@
 
         <EditText
             android:id="@+id/edittext_ht"
-            android:layout_width="230dp"
+            android:layout_width="233dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView_waist"
             android:layout_alignBottom="@+id/textView_waist"
@@ -122,19 +138,8 @@
             android:text="Ex. 51 " />
 
         <EditText
-            android:id="@+id/edittext_age"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView_age"
-            android:layout_alignBottom="@+id/textView_age"
-            android:layout_alignStart="@+id/edittext_ht"
-            android:ems="10"
-            android:inputType="number"
-            android:text="Ex. 22" />
-
-        <EditText
             android:id="@+id/edittext_waist"
-            android:layout_width="230dp"
+            android:layout_width="233dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView_ht"
             android:layout_alignBottom="@+id/textView_ht"
@@ -144,8 +149,19 @@
             android:text="Ex. 32" />
 
         <EditText
+            android:id="@+id/edittext_age"
+            android:layout_width="233dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView_age"
+            android:layout_alignBottom="@+id/textView_age"
+            android:layout_alignStart="@+id/edittext_ht"
+            android:ems="10"
+            android:inputType="number"
+            android:text="Ex. 22" />
+
+        <EditText
             android:id="@+id/edittext_hip"
-            android:layout_width="230dp"
+            android:layout_width="233dp"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/edittext_neck"
             android:layout_below="@+id/edittext_neck"
@@ -156,7 +172,7 @@
 
         <EditText
             android:id="@+id/edittext_neck"
-            android:layout_width="230dp"
+            android:layout_width="233dp"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/edittext_waist"
             android:layout_centerVertical="true"
@@ -165,25 +181,28 @@
             android:text="Ex. 14.5" />
 
 
+        <EditText
+            android:id="@+id/edittext_forearm"
+            android:layout_width="233dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/edittext_waist"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="number|numberDecimal"
+            android:text="Ex. 14.5" />
+
         <Button
             android:id="@+id/bn_calc"
-            android:layout_width="235dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/bn_skip"
             android:layout_alignBottom="@+id/bn_skip"
             android:layout_alignStart="@+id/textView_gender"
             android:layout_marginRight="100dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="45dp"
+            android:background="@color/colorAccent"
             android:text="Calculate" />
 
-        <Button
-            android:id="@+id/bn_skip"
-            android:layout_width="235dp"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/edittext_hip"
-            android:layout_below="@+id/edittext_hip"
-            android:layout_marginTop="15dp"
-            android:text="Skip" />
 
     </LinearLayout>
 
