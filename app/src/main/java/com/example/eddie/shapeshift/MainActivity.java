@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout Profile_Section;
     private Button SignOut;
     private SignInButton SignIn;
-    private Button Startbutton;
+    private Button mStartbutton;
     private TextView Name, Email;
     private ImageView Profile_Pic;
     private ImageView FrtPhoto;
@@ -45,24 +45,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Email = (TextView) findViewById(R.id.email);
         FrtPhoto = (ImageView) findViewById(R.id.imageView_photo);
         Profile_Pic = (ImageView) findViewById(R.id.prof_pic);
-        Startbutton = (Button) findViewById(R.id.bn_get_fit);
+        mStartbutton = (Button) findViewById(R.id.bn_get_fit);
         SignIn.setOnClickListener(this);
         SignOut.setOnClickListener(this);
         Profile_Section.setVisibility(View.GONE);
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();
-        Startbutton.setOnClickListener(new View.OnClickListener() {
 
+        mStartbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, InputCalcActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, InputCalcActivity.class));
             }
         });
+
     }
-
-
 
     @Override
     public void onClick(View view) {
@@ -76,8 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
-
     }
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

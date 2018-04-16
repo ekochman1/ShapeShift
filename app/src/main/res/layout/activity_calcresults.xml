@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="103dp"
         android:text="BMI:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView8"
         android:layout_below="@+id/textView8"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="27dp"
         android:text="BMR:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="27dp"
         android:text="WHtR:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView5"
         android:layout_below="@+id/textView5"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="21dp"
         android:text="BFP:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -86,11 +86,11 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_above="@+id/textView"
-        android:layout_marginStart="22dp"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_marginStart="14dp"
         android:layout_toEndOf="@+id/textView5"
-        android:text="Your Body Mass Index Value" />
+        android:text="Your Body Mass Index Value"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/textView_bmiLabel"
@@ -185,5 +185,26 @@
         android:layout_marginLeft="25dp"
         android:layout_toEndOf="@+id/imageButton5"
         android:text="Next" />
+
+    <EditText
+        android:id="@+id/editText_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButton2"
+        android:layout_alignEnd="@+id/imageButton3"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/textView_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_date"
+        android:layout_alignBottom="@+id/editText_date"
+        android:layout_alignStart="@+id/textView8"
+        android:text="Date:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

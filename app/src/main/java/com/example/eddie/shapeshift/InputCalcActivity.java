@@ -1,12 +1,19 @@
 package com.example.eddie.shapeshift;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Eddie on 4/11/18.
@@ -14,115 +21,100 @@ import android.widget.TextView;
 
 public class InputCalcActivity extends AppCompatActivity {
 
-    private RadioButton male;
-    private RadioButton female;
-    private TextView gender;
-    private TextView age;
-    private TextView weight;
-    private TextView height;
-    private TextView waist;
-    private TextView hip;
-    private TextView neck;
+    //private RadioButton male;
+    //private RadioButton female;
+    private RadioGroup sex;
     private EditText edit_age;
     private EditText edit_weight;
     private EditText edit_height;
     private EditText edit_waist;
+    private EditText edit_bfp;
     private EditText edit_hip;
     private EditText edit_neck;
     private Button calc;
     private Button skip;
 
+    private int ageInput;
+    private int heightInput;
+    private double bodyfatPercent = -1;
+    private double weightInput;
+    private int activityLevel=0;
+    private boolean male = true;
+    private boolean female = false;
+
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.radiobn_male:
+                male = true;
+                female = false;
+                break;
+            case R.id.radiobn_female:
+                female = true;
+                male = false;
+                break;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inputcalc);
-        male = (RadioButton) findViewById(R.id.radiobn_male);
-        female = (RadioButton) findViewById(R.id.radiobn_female);
-        gender = (TextView) findViewById(R.id.textView_gender);
-        age = (TextView) findViewById(R.id.textView_age);
-        weight = (TextView) findViewById(R.id.textView_wt);
-        height = (TextView) findViewById(R.id.textView_ht);
-        waist = (TextView) findViewById(R.id.textView_waist);
-        hip = (TextView) findViewById(R.id.textView_hip);
-        neck = (TextView) findViewById(R.id.textView_neck);
-        edit_age = (EditText) findViewById(R.id.edittext_age);
-        edit_weight = (EditText) findViewById(R.id.edittext_wt);
-        edit_height = (EditText) findViewById(R.id.edittext_ht);
-        edit_waist = (EditText) findViewById(R.id.edittext_waist);
-        edit_hip = (EditText) findViewById(R.id.edittext_ht);
-        edit_neck = (EditText) findViewById(R.id.edittext_neck);
-        calc = (Button) findViewById(R.id.bn_calc);
-        skip = (Button) findViewById(R.id.bn_skip);
 
     }
 
-    public void calculateBMI(View view) {
-        String heightString = height.getText().toString();
-        String weightString = weight.getText().toString();
 
-        if (heightString != null && !"".equals(heightString)
-            && weightString != null && !"".equals(weightString)) {
-            float heightValue = Float.parseFloat(heightString) /100;
-            float weightValue =  Float.parseFloat(weightString);
+    public void onCalculate(View view) {
+        try {
+            edit_age = (EditText) findViewById(R.id.edittext_age);
+            edit_height = (EditText) findViewById(R.id.edittext_ht);
+            edit_bfp = (EditText) findViewById(R.id.edittext_bfp);
+            edit_weight = (EditText) findViewById(R.id.edittext_wt);
+            if (isEmpty(edit_age) && isEmpty(edit_height) && isEmpty(edit_weight) &&
+                    !edit_weight.toString().equals(".") && !edit_bfp.toString().equals(".")) {
+                ageInput = Integer.parseInt(edit_age.getText().toString());
+                heightInput = Integer.parseInt(edit_height.getText().toString());
+                Intent passdata_intent = new Intent(this, CalcResultsActivity.class);
+                if (isEmpty(edit_bfp)) {
+                    bodyfatPercent = Double.parseDouble(edit_bfp.getText().toString());
+                    passdata_intent.putExtra("bodyfatPercent", bodyfatPercent);
+                } else {
+                    passdata_intent.putExtra("bodyfatPercent", -1);
+                }
+                weightInput = Double.parseDouble(edit_weight.getText().toString());
+                passdata_intent.putExtra("mass", weightInput);
+                passdata_intent.putExtra("activityLevel", activityLevel);
+                passdata_intent.putExtra("height", heightInput);
+                passdata_intent.putExtra("age", ageInput);
+                if (male == true) {
+                    passdata_intent.putExtra("ifMale", true);
+                } else {
+                    passdata_intent.putExtra("ifMale", false);
+                }
+                if((ageInput<=120)&&(ageInput>=0)&&(heightInput<=250)&&(bodyfatPercent<100)&&(weightInput<500))
+                {
+                    startActivity(passdata_intent);
+                }
+                else
+                {
+                    Toast notFinished = new Toast(getApplicationContext());
+                    notFinished.makeText(getApplicationContext(), "Your Figures Seem Incorrect, Please Enter Valid Figures.", Toast.LENGTH_SHORT).show();
+                }
 
-            float bmi = weightValue / (heightValue * heightValue);
 
-            displayBMI(bmi);
-
+            } else {
+                Toast notFinished = new Toast(getApplicationContext());
+                notFinished.makeText(getApplicationContext(), "Please Complete The Necessary Sections Correctly", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast notFinished = new Toast(getApplicationContext());
+            notFinished.makeText(getApplicationContext(), "Please Complete The Necessary Sections Correctly", Toast.LENGTH_SHORT).show();
         }
     }
-
-    private void displayBMI (float bmi) {
-        String bmiLabel = "";
-
-        if (Float.compare(bmi, 15f) <= 0) {
-            bmiLabel = getString(R.string.very_severely_underweight);
-        } else if (Float.compare(bmi, 15f) > 0 && Float.compare(bmi, 16f) <= 0) {
-            bmiLabel = getString(R.string.severely_underweight);
-        } else if (Float.compare(bmi, 16f) > 0 && Float.compare(bmi, 18.5f) <= 0) {
-            bmiLabel = getString(R.string.underweight);
-        } else if (Float.compare(bmi, 18.5f) > 0 && Float.compare(bmi, 25f) <= 0) {
-            bmiLabel = getString(R.string.normal);
-        } else if (Float.compare(bmi, 25f) > 0 && Float.compare(bmi, 30f) <= 0) {
-            bmiLabel = getString(R.string.overweight);
-        } else if (Float.compare(bmi, 30f) > 0 && Float.compare(bmi, 35f) <= 0) {
-            bmiLabel = getString(R.string.obese_class_i);
-        } else if (Float.compare(bmi, 35f) > 0 && Float.compare(bmi, 40f) <= 0) {
-            bmiLabel = getString(R.string.obese_class_ii);
-        } else {
-            bmiLabel = getString(R.string.obese_class_iii);
-        }
-
-        bmiLabel = bmi + "\n\n" + bmiLabel;
-        //result.setText(bmiLabel);
-
-        }
-
-
-    public void calculateBMR(View view) {
-        String heightString = height.getText().toString();
-        String weightString = weight.getText().toString();
-        String ageString = age.getText().toString();
-
-        if (heightString != null && !"".equals(heightString)
-                && weightString != null && !"".equals(weightString)
-                && ageString != null && !"".equals(ageString)) {
-            float heightValue = Float.parseFloat(heightString) / 100;
-            float weightValue = Float.parseFloat(weightString);
-            float ageValue = Float.parseFloat(ageString);
-//women
-            float bmr1 = (float) (655 + (4.35 * weightValue) + (4.7 * heightValue) - (6.8 * ageValue));
-//men
-            float bmr2 = (float) (66 + (6.23 * weightValue) + (12.7 * heightValue) - (6.8 * ageValue));
-
-            displayBMR(bmr1, bmr2);
-
-        }
+    private boolean isEmpty(EditText myeditText) {
+        return myeditText.getText().toString().trim().length() != 0;
     }
-
-    private void displayBMR (float bmr1, float bmr2) {
-        String bmrLabel = "";
-    }
-    }
-
-
+}
