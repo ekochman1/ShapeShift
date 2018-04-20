@@ -26,6 +26,10 @@
             android:name=".CalcResultsActivity"
             android:label="Your Daily Results">
         </activity>
+        <activity
+            android:name=".HomepageActivity"
+            android:label="Your Daily Results">
+        </activity>
     </application>
 
 </manifest>

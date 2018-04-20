@@ -20,6 +20,7 @@
             android:layout_below="@+id/textView_title"
             android:layout_marginTop="50dp"
             android:text="Health Tracker Log"
+            android:background="@drawable/button"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -31,6 +32,7 @@
             android:layout_alignStart="@+id/bn_Log"
             android:layout_below="@+id/bn_Log"
             android:layout_marginTop="22dp"
+            android:background="@drawable/button"
             android:text="Recipes"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -43,6 +45,8 @@
             android:layout_alignStart="@+id/bn_recipes"
             android:layout_below="@+id/bn_recipes"
             android:layout_marginTop="23dp"
+            android:background="@drawable/button"
+            android:onClick="setWorkouts"
             android:text="Workouts"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -56,6 +60,7 @@
             android:layout_below="@+id/bn_workouts"
             android:layout_marginTop="24dp"
             android:text="Health Spots"
+            android:background="@drawable/button"
             android:textSize="30sp"
             android:textStyle="bold" />
 
