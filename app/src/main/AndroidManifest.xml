@@ -19,8 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".InputCalcActivity">
+            android:name=".InputCalcActivity"
+            android:label="Input Information">
          </activity>
+        <activity
+            android:name=".CalcResultsActivity"
+            android:label="Your Daily Results">
+        </activity>
     </application>
 
 </manifest>

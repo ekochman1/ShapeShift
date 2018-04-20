@@ -24,20 +24,20 @@ public class InputCalcActivity extends AppCompatActivity {
     //private RadioButton male;
     //private RadioButton female;
     private RadioGroup sex;
-    private EditText edit_age;
-    private EditText edit_weight;
-    private EditText edit_height;
+    private EditText ageInput;
+    private EditText heightInput;
+    private EditText bodyfatPercentage;
     private EditText edit_waist;
-    private EditText edit_bfp;
+    private EditText massInput;
     private EditText edit_hip;
     private EditText edit_neck;
     private Button calc;
     private Button skip;
 
-    private int ageInput;
-    private int heightInput;
+    private int age;
+    private int height;
     private double bodyfatPercent = -1;
-    private double weightInput;
+    private double mass;
     private int activityLevel=0;
     private boolean male = true;
     private boolean female = false;
@@ -64,37 +64,57 @@ public class InputCalcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inputcalc);
 
+        final Spinner mySpinner = (Spinner) findViewById(R.id.activity_input);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputCalcActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.activity));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter((myAdapter));
+        mySpinner.setSelection(0);
+        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                activityLevel = mySpinner.getSelectedItemPosition();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
 
     public void onCalculate(View view) {
         try {
-            edit_age = (EditText) findViewById(R.id.edittext_age);
-            edit_height = (EditText) findViewById(R.id.edittext_ht);
-            edit_bfp = (EditText) findViewById(R.id.edittext_bfp);
-            edit_weight = (EditText) findViewById(R.id.edittext_wt);
-            if (isEmpty(edit_age) && isEmpty(edit_height) && isEmpty(edit_weight) &&
-                    !edit_weight.toString().equals(".") && !edit_bfp.toString().equals(".")) {
-                ageInput = Integer.parseInt(edit_age.getText().toString());
-                heightInput = Integer.parseInt(edit_height.getText().toString());
+            ageInput = (EditText) findViewById(R.id.edittext_age);
+            heightInput = (EditText) findViewById(R.id.edittext_ht);
+            bodyfatPercentage = (EditText) findViewById(R.id.edittext_bfp);
+            massInput = (EditText) findViewById(R.id.edittext_wt);
+            if (isEmpty(ageInput) && isEmpty(heightInput) && isEmpty(massInput) &&
+                    !massInput.toString().equals(".") && !bodyfatPercentage.toString().equals(".")) {
+                age = Integer.parseInt(ageInput.getText().toString());
+                height = Integer.parseInt(heightInput.getText().toString());
                 Intent passdata_intent = new Intent(this, CalcResultsActivity.class);
-                if (isEmpty(edit_bfp)) {
-                    bodyfatPercent = Double.parseDouble(edit_bfp.getText().toString());
+                if (isEmpty(bodyfatPercentage)) {
+                    bodyfatPercent = Double.parseDouble(bodyfatPercentage.getText().toString());
                     passdata_intent.putExtra("bodyfatPercent", bodyfatPercent);
                 } else {
                     passdata_intent.putExtra("bodyfatPercent", -1);
                 }
-                weightInput = Double.parseDouble(edit_weight.getText().toString());
-                passdata_intent.putExtra("mass", weightInput);
+                mass = Double.parseDouble(massInput.getText().toString());
+                passdata_intent.putExtra("mass", mass);
                 passdata_intent.putExtra("activityLevel", activityLevel);
-                passdata_intent.putExtra("height", heightInput);
-                passdata_intent.putExtra("age", ageInput);
+                passdata_intent.putExtra("height", height);
+                passdata_intent.putExtra("age", age);
+
+                boolean temp = (age <= 120) && (age >= 0) && (height <= 250) && (bodyfatPercent < 100) && (mass < 500);
                 if (male == true) {
                     passdata_intent.putExtra("ifMale", true);
                 } else {
                     passdata_intent.putExtra("ifMale", false);
                 }
-                if((ageInput<=120)&&(ageInput>=0)&&(heightInput<=250)&&(bodyfatPercent<100)&&(weightInput<500))
+                if (temp)
+
                 {
                     startActivity(passdata_intent);
                 }
