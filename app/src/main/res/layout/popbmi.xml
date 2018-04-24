@@ -21,7 +21,7 @@
             android:text="BMI is a person’s weight in kilograms divided by the square of height in meters. BMI does not measure body fat directly, but research has shown that BMI is moderately correlated with more direct measures of body fat obtained from skinfold thickness measurements, bioelectrical impedance, densitometry (underwater weighing), dual energy x-ray absorptiometry (DXA) and other methods. Furthermore, BMI appears to be as strongly correlated with various metabolic and disease outcome as are these more direct measures of body fatness. In general, BMI is an inexpensive and easy-to-perform method of screening for weight category, for example underweight, normal or healthy weight, overweight, and obesity." />
 
         <TextView
-            android:id="@+id/textView_What_is_BMI"
+            android:id="@+id/textView_What_is_BMR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -33,10 +33,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView_What_is_BMI"
+            android:layout_below="@+id/textView_What_is_BMR"
             android:layout_marginTop="320dp"
             android:padding="8dp"
             android:text="Below 18.5	              Underweight
@@ -44,13 +44,6 @@
 25.0 – 29.9	              Overweight
 30.0 and Above	      Obese"
             android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="320dp"
-            android:padding="8dp"/>
 
 
     </RelativeLayout>
