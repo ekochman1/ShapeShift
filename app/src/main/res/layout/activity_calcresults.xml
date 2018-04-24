@@ -107,8 +107,8 @@
 
     <ImageButton
         android:id="@+id/imageButton_TDEE"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignBottom="@+id/tddeResult"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/tddeResult"
@@ -118,8 +118,8 @@
 
     <ImageButton
         android:id="@+id/imageButton_WHtR"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignBottom="@+id/whtrResult"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/whtrResult"
@@ -129,8 +129,8 @@
 
     <ImageButton
         android:id="@+id/imageButton_BMR"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_above="@+id/textView5"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/bmrResult"
@@ -141,8 +141,8 @@
 
     <ImageButton
         android:id="@+id/imageButton_BMI"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignBottom="@+id/textView_bmiLabel"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/textView_bmiLabel"
