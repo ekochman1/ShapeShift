@@ -27,15 +27,16 @@ public class InputCalcActivity extends AppCompatActivity {
     private EditText ageInput;
     private EditText heightInput;
     private EditText bodyfatPercentage;
-    private EditText edit_waist;
+    private EditText waistInput;
     private EditText massInput;
-    private EditText edit_hip;
-    private EditText edit_neck;
+    //private EditText edit_hip;
+    //private EditText edit_neck;
     private Button calc;
     private Button skip;
 
     private int age;
     private int height;
+    private double waist;
     private double bodyfatPercent = -1;
     private double mass;
     private int activityLevel=0;
@@ -90,7 +91,8 @@ public class InputCalcActivity extends AppCompatActivity {
             heightInput = (EditText) findViewById(R.id.edittext_ht);
             bodyfatPercentage = (EditText) findViewById(R.id.edittext_bfp);
             massInput = (EditText) findViewById(R.id.edittext_wt);
-            if (isEmpty(ageInput) && isEmpty(heightInput) && isEmpty(massInput) &&
+            waistInput = (EditText) findViewById(R.id.edittext_waist);
+            if (isEmpty(ageInput) && isEmpty(heightInput) && isEmpty(massInput) && isEmpty(waistInput) &&
                     !massInput.toString().equals(".") && !bodyfatPercentage.toString().equals(".")) {
                 age = Integer.parseInt(ageInput.getText().toString());
                 height = Integer.parseInt(heightInput.getText().toString());
@@ -102,12 +104,14 @@ public class InputCalcActivity extends AppCompatActivity {
                     passdata_intent.putExtra("bodyfatPercent", -1);
                 }
                 mass = Double.parseDouble(massInput.getText().toString());
+                waist = Double.parseDouble(waistInput.getText().toString());
                 passdata_intent.putExtra("mass", mass);
                 passdata_intent.putExtra("activityLevel", activityLevel);
                 passdata_intent.putExtra("height", height);
                 passdata_intent.putExtra("age", age);
+                passdata_intent.putExtra("waist", waist);
 
-                boolean temp = (age <= 120) && (age >= 0) && (height <= 250) && (bodyfatPercent < 100) && (mass < 500);
+                boolean temp = (age <= 120) && (age >= 0) && (height <= 250) && (waist <= 50)&& (bodyfatPercent < 100) && (mass < 500);
                 if (male == true) {
                     passdata_intent.putExtra("ifMale", true);
                 } else {

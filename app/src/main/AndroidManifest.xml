@@ -30,6 +30,27 @@
             android:name=".HomepageActivity"
             android:label="Your Daily Results">
         </activity>
+        <activity
+            android:name=".ListViewActivity"
+            android:label="Your Daily Results">
+        </activity>
+        <activity
+            android:name=".bmipop"
+            android:theme = "@style/AppTheme.CustomTheme">
+        </activity>
+        <activity
+            android:name=".bmrpop"
+            android:theme = "@style/AppTheme.CustomTheme">
+        </activity>
+        <activity
+            android:name=".whtrpop"
+            android:theme = "@style/AppTheme.CustomTheme">
+        </activity>
+        <activity
+            android:name=".tdeepop"
+            android:theme = "@style/AppTheme.CustomTheme">
+        </activity>
+
     </application>
 
 </manifest>

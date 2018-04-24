@@ -1,13 +1,18 @@
 package com.example.eddie.shapeshift;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Eddie on 4/14/18.
@@ -15,9 +20,19 @@ import android.widget.TextView;
 
 public class CalcResultsActivity extends AppCompatActivity {
 
-    private Button add;
-    private Button update;
-    private Button next;
+     Button add;
+     Button delete;
+     Button Viewlog;
+     ImageButton Cam;
+     ImageView CamImage;
+     DatabaseHelperActivity myDB;
+     EditText date;
+     ImageButton bmi;
+     ImageButton bmr;
+     ImageButton whtr;
+     ImageButton tdee;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +40,44 @@ public class CalcResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calcresults);
 
         add = (Button) findViewById(R.id.add_bn);
-        update = (Button) findViewById(R.id.update_bn);
-        next = (Button) findViewById(R.id.next_bn);
+        delete = (Button) findViewById(R.id.delete_bn);
+        Viewlog = (Button) findViewById(R.id.logview_bn);
+        Cam = (ImageButton) findViewById(R.id.imageButton_Cam);
+        CamImage = (ImageView) findViewById(R.id.imageView_Cam);
+        date = (EditText) findViewById(R.id.editText_date);
+        myDB = new DatabaseHelperActivity(this);
+        bmi = (ImageButton) findViewById(R.id.imageButton_BMI);
+        bmr = (ImageButton) findViewById(R.id.imageButton_BMR);
+        whtr = (ImageButton) findViewById(R.id.imageButton_WHtR);
+        tdee = (ImageButton) findViewById(R.id.imageButton_TDEE);
+
+        bmi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CalcResultsActivity.this,bmipop.class));
+            }
+        });
+
+        bmr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CalcResultsActivity.this,bmrpop.class));
+            }
+        });
+
+        whtr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CalcResultsActivity.this,whtrpop.class));
+            }
+        });
+
+        tdee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CalcResultsActivity.this,tdeepop.class));
+            }
+        });
 
 
         ActionBar actionBar = getSupportActionBar();
@@ -35,6 +86,7 @@ public class CalcResultsActivity extends AppCompatActivity {
         boolean ifMale = getIntent().getExtras().getBoolean("ifMale");
         int age = getIntent().getExtras().getInt("age");
         int height = getIntent().getExtras().getInt("height");
+        double waist = getIntent().getExtras().getDouble("waist");
         double mass = getIntent().getExtras().getDouble("mass");
         double bodyfat = getIntent().getExtras().getDouble("bodyfatPercent");
         double heightInMetres = (double) (height * 1.0) / (100);
@@ -64,6 +116,7 @@ public class CalcResultsActivity extends AppCompatActivity {
             TextView bmiResultText = (TextView) findViewById(R.id.bmiResult);
             TextView bmrResultText = (TextView) findViewById(R.id.bmrResult);
             TextView tddeResultText = (TextView) findViewById(R.id.tddeResult);
+            TextView whtrResultText = (TextView) findViewById(R.id.whtrResult);
             //Mifflin = (10.m + 6.25h - 5.0a) + s
             //m is mass in kg, h is height in cm, a is age in years, s is +5 for males and -151 for females
             int formulaNumber = -1;
@@ -77,48 +130,82 @@ public class CalcResultsActivity extends AppCompatActivity {
             //Men: BMR = 66 + (13.7 x weight in kg) + (5 x height in cm) - (6.8 x age in years)
             double bmrDouble = (((10) * mass) + (6.25 * height) - (5 * age + formulaNumber));
             double tddeDouble = bmrDouble * activityMultiplier;
+            double whtrDouble = (waist / height) * 100;
             int bmr = (int) bmrDouble;
             bmiResultText.setText("" + round(bmi, 2));
             tddeResultText.setText("" + tddeDouble);
             bmrResultText.setText("" + bmr);
+            whtrResultText.setText("" + whtrDouble);
         } else {
             TextView bmiResultText = (TextView) findViewById(R.id.bmiResult);
             TextView bmrResultText = (TextView) findViewById(R.id.bmrResult);
             TextView tddeResultText = (TextView) findViewById(R.id.tddeResult);
+            TextView whtrResultText = (TextView) findViewById(R.id.whtrResult);
             //Katch = 370 + (21.6 * LBM)
             double lbm = mass - (((bodyfat * mass) / 100));
             double bmrDouble = (370 + (21.6 * lbm));
             double tddeDouble = bmrDouble * activityMultiplier;
+            double whtrDouble = (waist / height) * 100;
             int bmr = (int) bmrDouble;
             tddeResultText.setText("" + tddeDouble);
             bmiResultText.setText("" + round(bmi, 2));
             bmrResultText.setText("" + bmr);
+            whtrResultText.setText("" + whtrDouble);
         }
 
-        next.setOnClickListener(new View.OnClickListener() {
+        Viewlog.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CalcResultsActivity.this, HomepageActivity.class));
+            public void onClick(View view) {
+
+                Intent intent = new Intent(CalcResultsActivity.this, ListViewActivity.class);
+                startActivity(intent);
             }
         });
+
+        Cam.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View View) {
+                Intent camintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(camintent, 0);
+            }
+
+        });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newEntry = date.getText().toString();
+                if (date.length() != 0){
+                    AddData(newEntry);
+                    date.setText("");
+
+                }
+                else {
+                    Toast.makeText(CalcResultsActivity.this, "Please add a date", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+    }
+    public void AddData(String newEntry){
+        boolean insertData = myDB.addData(newEntry);
+
+        if(insertData==true){
+            Toast.makeText(CalcResultsActivity.this, "Successfully entered data!",Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(CalcResultsActivity.this, "Something went wrong",Toast.LENGTH_LONG).show();
+        }
     }
 
-    public void browser1(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html"));
-        startActivity(browserIntent);
-    }
 
-    public void browser2(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.livestrong.com/article/266994-how-to-lose-weight-with-bmr/"));
-        startActivity(browserIntent);
-    }
-    public void browser3(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://prowellness.vmhost.psu.edu/families/understanding_risk/whtr"));
-        startActivity(browserIntent);
-    }
-    public void browser4(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://fitfolk.com/what-is-tdee-total-daily-energy-expenditure/"));
-        startActivity(browserIntent);
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap cambitmap = (Bitmap)data.getExtras().get("data");
+        CamImage.setImageBitmap(cambitmap);
     }
 
 

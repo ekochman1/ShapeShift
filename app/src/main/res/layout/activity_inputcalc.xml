@@ -42,20 +42,20 @@
             android:text="Height (cm)" />
 
         <TextView
-            android:id="@+id/textView_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView_waist"
-            android:layout_below="@+id/textView_waist"
-            android:layout_marginTop="27dp"
-            android:text="Age" />
-
-        <TextView
             android:id="@+id/textView_waist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
+            android:layout_alignStart="@+id/textView_age"
+            android:layout_below="@+id/textView_age"
+            android:layout_marginTop="27dp"
             android:text="Waist (Inches)" />
+
+        <TextView
+            android:id="@+id/textView_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Age" />
 
         <TextView
             android:id="@+id/textView_hip"
@@ -145,8 +145,8 @@
             android:id="@+id/edittext_ht"
             android:layout_width="233dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView_waist"
-            android:layout_alignBottom="@+id/textView_waist"
+            android:layout_alignBaseline="@+id/textView_age"
+            android:layout_alignBottom="@+id/textView_age"
             android:layout_alignStart="@+id/edittext_wt"
             android:ems="10"
             android:hint="Ex. 130"
