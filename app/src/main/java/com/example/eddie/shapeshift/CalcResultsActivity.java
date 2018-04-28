@@ -20,9 +20,12 @@ import android.widget.Toast;
 
 public class CalcResultsActivity extends AppCompatActivity {
 
+    private static final String LOG = "CalcResultsActivity";
+
      Button add;
      Button delete;
      Button Viewlog;
+     Button update;
      ImageButton Cam;
      ImageView CamImage;
      DatabaseHelperActivity myDB;
@@ -31,8 +34,8 @@ public class CalcResultsActivity extends AppCompatActivity {
      ImageButton bmr;
      ImageButton whtr;
      ImageButton tdee;
-
-
+    private String selectedBMI;
+    private int selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,32 +53,49 @@ public class CalcResultsActivity extends AppCompatActivity {
         bmr = (ImageButton) findViewById(R.id.imageButton_BMR);
         whtr = (ImageButton) findViewById(R.id.imageButton_WHtR);
         tdee = (ImageButton) findViewById(R.id.imageButton_TDEE);
+        //bmiResult = (TextView) findViewById(R.id.bmiResult);
+        //bmrResult = (TextView) findViewById(R.id.bmrResult);
+        // tddeResult = (TextView) findViewById(R.id.tddeResult);
+        //whtrResult = (TextView) findViewById(R.id.whtrResult);
+        //AddData();
+
+        //get the intent extra from the ListDataActivity
+        Intent receivedIntent = getIntent();
+
+        //now get the itemID we passed as an extra
+        selectedDate = receivedIntent.getIntExtra("date",-1); //NOTE: -1 is just the default value
+
+        //now get the name we passed as an extra
+        selectedBMI = receivedIntent.getStringExtra("bmi");
+
+        //set the text to show the current selected name
+        date.setText(selectedBMI);
 
         bmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CalcResultsActivity.this,bmipop.class));
+                startActivity(new Intent(CalcResultsActivity.this, bmipop.class));
             }
         });
 
         bmr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CalcResultsActivity.this,bmrpop.class));
+                startActivity(new Intent(CalcResultsActivity.this, bmrpop.class));
             }
         });
 
         whtr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CalcResultsActivity.this,whtrpop.class));
+                startActivity(new Intent(CalcResultsActivity.this, whtrpop.class));
             }
         });
 
         tdee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CalcResultsActivity.this,tdeepop.class));
+                startActivity(new Intent(CalcResultsActivity.this, tdeepop.class));
             }
         });
 
@@ -162,34 +182,87 @@ public class CalcResultsActivity extends AppCompatActivity {
             }
         });
 
-        Cam.setOnClickListener( new View.OnClickListener() {
+        Cam.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View View) {
+            public void onClick(View View) {
                 Intent camintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(camintent, 0);
             }
 
         });
-
+        /*
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String newEntry = date.getText().toString();
-                if (date.length() != 0){
+                if (date.length() != 0) {
                     AddData(newEntry);
                     date.setText("");
-
-                }
-                else {
+                } else {
                     Toast.makeText(CalcResultsActivity.this, "Please add a date", Toast.LENGTH_LONG).show();
                 }
             }
         });
+        */
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String item = date.getText().toString();
+                if(!item.equals("")){
+                    myDB.updateBMI( item, selectedDate, selectedBMI);
+                }
+                else{
+                    toastMessage("You must enter a date");
+                }
+            }
+        });
 
-
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDB.deleteBMI(selectedDate, selectedBMI);
+                date.setText("");
+                toastMessage("removed from database");
+            }
+        });
 
     }
-    public void AddData(String newEntry){
+
+    public void toastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void AddData (String newEntry){
+        boolean insertData = myDB.addData(newEntry);
+
+        if (insertData == true){
+            Toast.makeText(CalcResultsActivity.this, "Successfully entered data!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText( CalcResultsActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
+    }
+                /*
+                boolean isInserted = myDB.insertData(date.getText().toString(),
+                        BMI.getText().toString(),
+                        BM.getText().toString(),
+                        whtrResult.getText().toString(),
+                        tddeResult.getText().toString());
+
+                if (isInserted = true) {
+                    Toast.makeText(CalcResultsActivity.this, "Successfully entered data!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(CalcResultsActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+
+        });
+    }
+
+
+         /*
         boolean insertData = myDB.addData(newEntry);
 
         if(insertData==true){
@@ -197,8 +270,7 @@ public class CalcResultsActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(CalcResultsActivity.this, "Something went wrong",Toast.LENGTH_LONG).show();
-        }
-    }
+            */
 
 
     @Override
@@ -207,7 +279,6 @@ public class CalcResultsActivity extends AppCompatActivity {
         Bitmap cambitmap = (Bitmap)data.getExtras().get("data");
         CamImage.setImageBitmap(cambitmap);
     }
-
 
     public void onReturn(View view)
     {

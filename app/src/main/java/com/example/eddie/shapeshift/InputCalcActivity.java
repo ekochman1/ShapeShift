@@ -39,7 +39,7 @@ public class InputCalcActivity extends AppCompatActivity {
     private double waist;
     private double bodyfatPercent = -1;
     private double mass;
-    private int activityLevel=0;
+    private int activityLevel = 0;
     private boolean male = true;
     private boolean female = false;
 
@@ -64,6 +64,17 @@ public class InputCalcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inputcalc);
+
+        skip = (Button) findViewById(R.id.bn_skip);
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InputCalcActivity.this, HomepageActivity.class));
+
+            }
+        });
+
 
         final Spinner mySpinner = (Spinner) findViewById(R.id.activity_input);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputCalcActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.activity));

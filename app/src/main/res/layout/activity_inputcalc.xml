@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_marginBottom="10dp"
     android:layout_marginTop="10dp"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="vertical">
@@ -86,13 +86,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:text="Activity Level" />
-
-        <Button
-            android:id="@+id/bn_skip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="Skip" />
 
     </LinearLayout>
 
@@ -213,18 +206,30 @@
             android:layout_marginTop="5dp"
             android:dropDownWidth="match_parent" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="237dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/bn_skip"
-            android:layout_alignBottom="@+id/bn_skip"
-            android:layout_alignStart="@+id/textView_gender"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:onClick="onCalculate"
-            android:text="Calculate" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bn_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Skip" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="18dp"
+                android:background="@color/colorAccent"
+                android:onClick="onCalculate"
+                android:text="Calculate" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
