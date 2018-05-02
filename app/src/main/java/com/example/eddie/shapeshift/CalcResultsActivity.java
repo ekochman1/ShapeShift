@@ -100,9 +100,9 @@ public class CalcResultsActivity extends AppCompatActivity {
         });
 
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayShowHomeEnabled(true);
+        //actionBar.setIcon(R.mipmap.ic_launcher);
         boolean ifMale = getIntent().getExtras().getBoolean("ifMale");
         int age = getIntent().getExtras().getInt("age");
         int height = getIntent().getExtras().getInt("height");

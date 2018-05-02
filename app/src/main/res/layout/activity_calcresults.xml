@@ -6,43 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:autofillHints="MM/DD/YYYY"
+    android:background="@drawable/allback"
     tools:context="com.example.eddie.shapeshift.CalcResultsActivity">
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="40dp">
 
         <EditText
             android:id="@+id/editText_date"
-            android:layout_width="match_parent"
+            android:layout_width="232dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/imageButton_BMI"
-            android:layout_alignEnd="@+id/imageButton_BMR"
             android:layout_marginBottom="12dp"
-            android:layout_marginLeft="18dp"
+            android:layout_marginLeft="10dp"
             android:autofillHints="(MM/DD/YYYY)"
             android:ems="10"
             android:hint="Date (MM/DD/YYYY)"
             android:inputType="date"
             android:selectAllOnFocus="false"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray" />
 
 
     </LinearLayout>
-
-
 
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="17dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="103dp"
         android:text="BMI:"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -50,10 +50,12 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView8"
+
         android:layout_below="@+id/textView8"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="27dp"
         android:text="BMR:"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -61,10 +63,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView"
+
         android:layout_below="@+id/textView"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="27dp"
         android:text="WHtR:"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -72,10 +76,12 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView5"
+
         android:layout_below="@+id/textView5"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="21dp"
         android:text="TDEE:"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -85,8 +91,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
-        android:layout_alignStart="@+id/bmiResult"
+
+        android:layout_marginLeft="60dp"
         android:text="Total Daily Calorie Expediture"
+        android:textColor="@android:color/black"
         android:textSize="15sp" />
 
     <TextView
@@ -95,8 +103,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
-        android:layout_alignStart="@+id/tddeResult"
+
+        android:layout_marginLeft="60dp"
         android:text="Your Waist to Height Ratio"
+        android:textColor="@android:color/black"
         android:textSize="15sp" />
 
     <TextView
@@ -105,8 +115,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
-        android:layout_alignStart="@+id/whtrResult"
+
+        android:layout_marginLeft="50dp"
         android:text="Your Basal Metabolic Rate "
+        android:textColor="@android:color/black"
         android:textSize="15sp" />
 
     <TextView
@@ -114,20 +126,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView8"
-        android:layout_marginStart="14dp"
-        android:layout_toEndOf="@+id/textView5"
-        android:text="Your Body Mass Index Value"
-        android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/textView_bmiLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bmiResult"
-        android:layout_alignBottom="@+id/bmiResult"
-        android:layout_marginStart="12dp"
-        android:layout_toEndOf="@+id/bmiResult"
-        android:text="TextView"
+
+        android:layout_marginLeft="50dp"
+        android:text="Your Body Mass Index Value"
+        android:textColor="@android:color/black"
         android:textSize="15sp" />
 
     <ImageButton
@@ -135,46 +138,49 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignBottom="@+id/tddeResult"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@+id/tddeResult"
+        android:layout_marginLeft="257dp"
+
         android:background="@android:color/holo_blue_light"
         android:onClick="browser4"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:ignore="OnClick" />
 
     <ImageButton
         android:id="@+id/imageButton_WHtR"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignBottom="@+id/whtrResult"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@+id/whtrResult"
+        android:layout_marginLeft="250dp"
         android:background="@android:color/holo_blue_light"
         android:onClick="browser3"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:ignore="OnClick" />
 
     <ImageButton
         android:id="@+id/imageButton_BMR"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_above="@+id/textView5"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@+id/bmrResult"
+        android:layout_marginLeft="240dp"
+
         android:background="@android:color/darker_gray"
         android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="browser2"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:ignore="OnClick" />
 
     <ImageButton
         android:id="@+id/imageButton_BMI"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_alignBottom="@+id/textView_bmiLabel"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@+id/textView_bmiLabel"
+        android:layout_alignBottom="@+id/textView8"
+
+        android:layout_marginLeft="250dp"
         android:background="@android:color/darker_gray"
         android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="browser1"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:ignore="OnClick" />
     
     <LinearLayout
         android:layout_width="wrap_content"
@@ -186,7 +192,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_above="@+id/clicky_bn"
-            android:layout_alignStart="@+id/textView6"
+
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -197,26 +203,28 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView_Cam"
             android:layout_marginTop="50dp"
-            android:layout_toEndOf="@+id/imageView_Cam"
+
             app:srcCompat="@android:drawable/ic_menu_camera" />
 
     </LinearLayout>
 
 
-
     <LinearLayout
+        android:id="@+id/clicky_bn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="450dp"
-        android:id="@+id/clicky_bn">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/delete_bn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView_Cam"
-            android:layout_toEndOf="@+id/add_bn"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
             android:text="Delete" />
 
         <Button
@@ -224,7 +232,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
             android:text="Add to Log" />
 
         <Button
@@ -233,7 +243,10 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/delete_bn"
             android:layout_alignBottom="@+id/delete_bn"
-            android:layout_toStartOf="@+id/logview_bn"
+            android:layout_marginRight="7dp"
+
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
             android:onClick="onReturn"
             android:text="Return" />
 
@@ -243,7 +256,10 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/return_bn"
             android:layout_alignBottom="@+id/return_bn"
-            android:layout_alignStart="@+id/imageButton_BMR"
+            android:layout_marginRight="7dp"
+
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
             android:text="View Log" />
 
 

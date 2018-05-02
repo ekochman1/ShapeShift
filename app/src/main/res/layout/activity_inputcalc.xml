@@ -5,13 +5,15 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="10dp"
     android:layout_marginTop="10dp"
+    android:background="@drawable/allback"
     android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
         android:orientation="vertical">
 
         <TextView
@@ -21,7 +23,9 @@
             android:layout_alignStart="@+id/textView_wt"
             android:layout_below="@+id/textView_wt"
             android:layout_marginTop="22dp"
-            android:text="Gender" />
+            android:text="Gender"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_wt"
@@ -29,8 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView_ht"
             android:layout_below="@+id/textView_ht"
-            android:layout_marginTop="37dp"
-            android:text="Weight (kgs)" />
+            android:layout_marginTop="30dp"
+            android:text="Weight (kgs)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_ht"
@@ -38,8 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView_age"
             android:layout_below="@+id/textView_age"
-            android:layout_marginTop="30dp"
-            android:text="Height (cm)" />
+            android:layout_marginTop="24dp"
+            android:text="Height (cm)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_waist"
@@ -47,15 +55,19 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView_age"
             android:layout_below="@+id/textView_age"
-            android:layout_marginTop="27dp"
-            android:text="Waist (Inches)" />
+            android:layout_marginTop="22dp"
+            android:text="Waist (Inches)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:text="Age" />
+            android:layout_marginTop="19dp"
+            android:text="Age"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_hip"
@@ -63,36 +75,45 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView_neck"
             android:layout_below="@+id/textView_neck"
-            android:layout_marginTop="27dp"
-            android:text="Hip (Inches" />
+            android:layout_marginTop="19dp"
+            android:text="Hip (Inches"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_neck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text=" Neck (Inches)" />
+            android:layout_marginTop="21dp"
+            android:text=" Neck (Inches)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_bfp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="Body Fat (%)" />
+            android:layout_marginTop="21dp"
+            android:text="Body Fat (%)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView_bfp2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="Activity Level" />
+            android:layout_marginTop="21dp"
+            android:text="Activity Level"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="346dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="25dp"
         android:contextClickable="false"
         android:orientation="vertical">
 
@@ -110,17 +131,21 @@
                 android:layout_toStartOf="@+id/radiobn_female"
                 android:checked="true"
                 android:onClick="onRadioButtonClicked"
-                android:text="Male" />
+                android:text="Male"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radiobn_female"
-                android:layout_width="80dp"
+                android:layout_width="99dp"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/edittext_wt"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="23dp"
                 android:onClick="onRadioButtonClicked"
-                android:text="Female" />
+                android:text="Female"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
         </RadioGroup>
 
         <EditText
@@ -132,7 +157,10 @@
             android:layout_marginEnd="35dp"
             android:ems="10"
             android:hint="Ex. 50 "
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edittext_ht"
@@ -143,7 +171,10 @@
             android:layout_alignStart="@+id/edittext_wt"
             android:ems="10"
             android:hint="Ex. 130"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edittext_waist"
@@ -154,7 +185,10 @@
             android:layout_alignStart="@+id/edittext_age"
             android:ems="10"
             android:hint="Ex. 32"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edittext_age"
@@ -165,7 +199,10 @@
             android:layout_alignStart="@+id/edittext_ht"
             android:ems="10"
             android:hint="Ex. 22"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edittext_hip"
@@ -175,7 +212,10 @@
             android:layout_below="@+id/edittext_neck"
             android:ems="10"
             android:hint="Ex. 42"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
 
         <EditText
@@ -186,7 +226,10 @@
             android:layout_centerVertical="true"
             android:ems="10"
             android:hint="Ex. 14.5"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
 
         <EditText
@@ -197,7 +240,10 @@
             android:layout_centerVertical="true"
             android:ems="10"
             android:hint="Ex. 10 (Optional)"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp" />
 
         <Spinner
             android:id="@+id/activity_input"
@@ -207,8 +253,9 @@
             android:dropDownWidth="match_parent" />
 
         <LinearLayout
-            android:layout_width="237dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:orientation="horizontal">
 
             <Button
@@ -216,17 +263,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
+                android:background="@drawable/button"
                 android:text="Skip" />
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="match_parent"
+                android:layout_width="122dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="50dp"
                 android:layout_marginTop="18dp"
-                android:background="@color/colorAccent"
                 android:onClick="onCalculate"
+                android:background="@drawable/button"
                 android:text="Calculate" />
 
         </LinearLayout>

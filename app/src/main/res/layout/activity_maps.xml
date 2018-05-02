@@ -1,7 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_border"
+        tools:context="com.example.eddie.shapeshift.MapsActivity"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_weight= "1"
+        android:layout_alignParentLeft="true">
+
+        <ImageButton
+            android:id="@+id/bn_back2"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight= "2"
+            android:src="?android:attr/actionModeCloseDrawable" />
+
+        <EditText
+            android:id="@+id/TF_location"
+            android:layout_width="240dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="48dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop = "7dp"
+            android:hint="Search for a place"
+            android:textColorHint= "@android:color/darker_gray"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+
+        <Button
+            android:id="@+id/B_search"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="290dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop = "7dp"
+            android:layout_toEndOf="@+id/TF_location"
+            android:onClick="onClick"
+            android:text="Find"
+            android:layout_toRightOf="@+id/TF_location"
+            tools:ignore="RtlCompat" />
+
+
+
+        <Button
+            android:id="@+id/B_gym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop = "510dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TF_location"
+            android:background="@drawable/button"
+            android:onClick="onClick"
+            android:text="Gyms"
+            android:layout_alignParentLeft="true" />
+
+
+        <Button
+            android:id="@+id/B_cafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "560dp"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/TF_location"
+            android:background="@drawable/button"
+            android:layout_toEndOf="@+id/B_gym"
+            android:onClick="onClick"
+            android:text="Cafes"
+            android:layout_toRightOf="@+id/B_gym" />
+
+        <Button
+            android:id="@+id/B_supermarket"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop = "610dp"
+            android:layout_below="@+id/TF_location"
+            android:background="@drawable/button"
+            android:layout_toEndOf="@+id/B_cafe"
+            android:onClick="onClick"
+            android:text="Health Groceries"
+            android:layout_toRightOf="@+id/B_cafe" />
+
+    </fragment>
+
+</RelativeLayout>

@@ -43,15 +43,15 @@ public class DatabaseHelperActivity extends SQLiteOpenHelper {
 
  }
 
-    public boolean addData(String item) {
+    public boolean addData(String bmi) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         //contentValues.put(COL1, date);
-        contentValues.put(COL2, item);
+        contentValues.put(COL2, bmi);
         //contentValues.put(COL3, bmr);
         //contentValues.put(COL4, whtr);
         //contentValues.put(COL5, tdee);
-        Log.d(LOG, "addData: Adding" + item + "to" + TABLE_NAME);
+        Log.d(LOG, "addData: Adding" + bmi + "to" + TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -71,6 +71,32 @@ public class DatabaseHelperActivity extends SQLiteOpenHelper {
         Cursor data = db.rawQuery(query, null);
         return data;
     }
+/*
+    public Cursor displayData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        return data;
+    }
+
+    public boolean updateData(String date, String bmi, String bmr, String whtr, String tdee) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentvalues = new ContentValues();
+        contentvalues.put(COL1, date);
+        contentvalues.put(COL2, bmi);
+        contentvalues.put(COL3, bmr);
+        contentvalues.put(COL4, whtr);
+        contentvalues.put(COL5, tdee);
+        db.update(TABLE_NAME, contentvalues, "Date = ?", new String[]{date});
+        return true;
+    }
+
+    public Integer deleteData(String date){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "ID = ?", new String[] {date});
+    }
+
+
+    */
 
     public Cursor getItemDate (String bmi) {
 
@@ -100,5 +126,6 @@ public class DatabaseHelperActivity extends SQLiteOpenHelper {
 
 
     }
+
 
 }
