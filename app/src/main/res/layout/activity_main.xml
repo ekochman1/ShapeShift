@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/Title"
-            android:layout_width="270dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="40dp"
@@ -29,18 +29,20 @@
             android:text="ShapeShift"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="55dp" />
+            android:textSize="65dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Subtitle"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="95dp"
             android:layout_marginRight="90dp"
-            android:text=" A Health App"
+            android:text="  A Health App"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="20dp" />
+            android:textColor="@android:color/darker_gray"
+            android:textSize="30dp" />
 
     </LinearLayout>
 
