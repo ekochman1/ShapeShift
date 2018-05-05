@@ -9,18 +9,33 @@
     android:background="@drawable/allback"
     tools:context="com.example.eddie.shapeshift.CalcResultsActivity">
 
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="40dp"
+        android:text="ShapeShift"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="#eb6c6c"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="50dp">
 
         <EditText
             android:id="@+id/editText_date"
             android:layout_width="232dp"
             android:layout_height="wrap_content"
             android:layout_above="@+id/imageButton_BMI"
-            android:layout_marginBottom="12dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="30dp"
             android:autofillHints="(MM/DD/YYYY)"
             android:ems="10"
             android:hint="Date (MM/DD/YYYY)"
@@ -217,7 +232,7 @@
     </LinearLayout>
 
 
-    
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -249,8 +264,9 @@
         android:id="@+id/clicky_bn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="450dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="48dp"
         android:orientation="horizontal">
 
         <Button
