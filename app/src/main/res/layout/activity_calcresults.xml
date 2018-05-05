@@ -33,154 +33,190 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="131dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView8"
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="7dp"
+            android:text="BMI:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bmiResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_marginLeft="10dp"
+            android:text="Your Body Mass Index Value"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton_BMI"
+            android:layout_width="12dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/darker_gray"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:onClick="browser1"
+            app:srcCompat="@android:drawable/ic_dialog_info"
+            tools:ignore="OnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="103dp"
-        android:text="BMI:"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="170dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView8"
+            android:layout_marginLeft="5dp"
+            android:text="BMR:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bmrResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+
+            android:layout_marginLeft="10dp"
+            android:text="Your Basal Metabolic Rate "
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton_BMR"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_above="@+id/textView5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/darker_gray"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:onClick="browser2"
+            app:srcCompat="@android:drawable/ic_dialog_info"
+            tools:ignore="OnClick" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="211dp"
+        android:orientation="horizontal">
 
-        android:layout_below="@+id/textView8"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="27dp"
-        android:text="BMR:"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView5"
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/textView"
+            android:layout_marginLeft="5dp"
+            android:text="WHtR:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/whtrResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_marginLeft="20dp"
+            android:text="Your Waist to Height Ratio"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+
+        <ImageButton
+            android:id="@+id/imageButton_WHtR"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@+id/whtrResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="browser3"
+            app:srcCompat="@android:drawable/ic_dialog_info"
+            tools:ignore="OnClick" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_below="@+id/textView"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="27dp"
-        android:text="WHtR:"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@+id/textView5"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="21dp"
-        android:text="TDEE:"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tddeResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView6"
-        android:layout_alignBottom="@+id/textView6"
-
-        android:layout_marginLeft="60dp"
-        android:text="Total Daily Calorie Expediture"
-        android:textColor="@android:color/black"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/whtrResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-
-        android:layout_marginLeft="60dp"
-        android:text="Your Waist to Height Ratio"
-        android:textColor="@android:color/black"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/bmrResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView"
-        android:layout_alignBottom="@+id/textView"
-
-        android:layout_marginLeft="50dp"
-        android:text="Your Basal Metabolic Rate "
-        android:textColor="@android:color/black"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/bmiResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="250dp"
+        android:orientation="horizontal">
 
 
-        android:layout_marginLeft="50dp"
-        android:text="Your Body Mass Index Value"
-        android:textColor="@android:color/black"
-        android:textSize="15sp" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView5"
+            android:layout_marginLeft="5dp"
+            android:text="TDEE:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/imageButton_TDEE"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_alignBottom="@+id/tddeResult"
-        android:layout_marginLeft="257dp"
+        <TextView
+            android:id="@+id/tddeResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Total Daily Calorie Expediture"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
 
-        android:background="@android:color/holo_blue_light"
-        android:onClick="browser4"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:ignore="OnClick" />
 
-    <ImageButton
-        android:id="@+id/imageButton_WHtR"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_alignBottom="@+id/whtrResult"
-        android:layout_marginLeft="250dp"
-        android:background="@android:color/holo_blue_light"
-        android:onClick="browser3"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:ignore="OnClick" />
+        <ImageButton
+            android:id="@+id/imageButton_TDEE"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@+id/tddeResult"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="browser4"
+            app:srcCompat="@android:drawable/ic_dialog_info"
+            tools:ignore="OnClick" />
 
-    <ImageButton
-        android:id="@+id/imageButton_BMR"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_above="@+id/textView5"
-        android:layout_marginLeft="240dp"
+    </LinearLayout>
 
-        android:background="@android:color/darker_gray"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:onClick="browser2"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:ignore="OnClick" />
 
-    <ImageButton
-        android:id="@+id/imageButton_BMI"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_alignBottom="@+id/textView8"
-
-        android:layout_marginLeft="250dp"
-        android:background="@android:color/darker_gray"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:onClick="browser1"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:ignore="OnClick" />
     
     <LinearLayout
         android:layout_width="wrap_content"
