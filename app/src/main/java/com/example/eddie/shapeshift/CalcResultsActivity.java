@@ -173,14 +173,6 @@ public class CalcResultsActivity extends AppCompatActivity {
             whtrResultText.setText("" + whtrDouble);
         }
 
-        Viewlog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(CalcResultsActivity.this, ListViewActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Cam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,27 +196,7 @@ public class CalcResultsActivity extends AppCompatActivity {
             }
         });
         */
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String item = date.getText().toString();
-                if(!item.equals("")){
-                    myDB.updateBMI( item, selectedDate, selectedBMI);
-                }
-                else{
-                    toastMessage("You must enter a date");
-                }
-            }
-        });
-
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myDB.deleteBMI(selectedDate, selectedBMI);
-                date.setText("");
-                toastMessage("removed from database");
-            }
-        });
+        ;
 
     }
 
