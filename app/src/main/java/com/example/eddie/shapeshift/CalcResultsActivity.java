@@ -42,9 +42,9 @@ public class CalcResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calcresults);
 
-        add = (Button) findViewById(R.id.add_bn);
+        //add = (Button) findViewById(R.id.add_bn);
         delete = (Button) findViewById(R.id.delete_bn);
-        Viewlog = (Button) findViewById(R.id.logview_bn);
+        //Viewlog = (Button) findViewById(R.id.logview_bn);
         Cam = (ImageButton) findViewById(R.id.imageButton_Cam);
         CamImage = (ImageView) findViewById(R.id.imageView_Cam);
         date = (EditText) findViewById(R.id.editText_date);
