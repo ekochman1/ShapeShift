@@ -1,5 +1,6 @@
 package com.example.eddie.shapeshift;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -77,7 +78,7 @@ public class InputCalcActivity extends AppCompatActivity {
 
 
         final Spinner mySpinner = (Spinner) findViewById(R.id.activity_input);
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputCalcActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.activity));
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputCalcActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray( R.array.activity));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter((myAdapter));
         mySpinner.setSelection(0);
@@ -85,6 +86,11 @@ public class InputCalcActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 activityLevel = mySpinner.getSelectedItemPosition();
+
+                TextView spinnerText = (TextView) mySpinner.getChildAt(0);
+
+                spinnerText.setTextColor(Color.GRAY);
+
             }
 
             @Override

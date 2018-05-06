@@ -1,100 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="false"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="110dp">
-
-            <ImageButton
-                android:id="@+id/bn_Log"
-                android:layout_width="190dp"
-                android:layout_height="127dp"
-                android:layout_column="1"
-                android:layout_margin="5dp"
-                android:layout_row="0"
-                android:background="@drawable/hearthealth"
-                android:text="Health Tracker Log"
-                android:textSize="30sp"
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="40dp"
+                android:text="ShapeShift"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="#eb6c6c"
+                android:textSize="40dp"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/bn_recipes"
-                android:layout_width="190dp"
-                android:layout_height="127dp"
-                android:layout_column="1"
-                android:layout_margin="5dp"
-                android:layout_row="1"
-                android:background="@drawable/summer_roll_recipes"
-                android:text="Recipes"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="120dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/bn_Log"
+                    android:layout_width="280dp"
+                    android:layout_height="207dp"
+                    android:layout_column="1"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_row="0"
+                    android:background="@drawable/hearthealth"
+                    android:text="Health Tracker Log"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/redi" />
+
+                <ImageButton
+                    android:id="@+id/bn_workouts"
+                    android:layout_width="280dp"
+                    android:layout_height="207dp"
+                    android:layout_column="0"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_row="0"
+                    android:background="@drawable/wod"
+                    android:onClick="setWorkouts"
+                    android:text="Workouts"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/redi" />
+
+                <ImageButton
+                    android:id="@+id/btnMap"
+                    android:layout_width="280dp"
+                    android:layout_height="207dp"
+
+                    android:layout_column="0"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="100dp"
+                    android:layout_row="1"
+                    android:background="@drawable/images"
+                    android:text="Health Spots"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
 
             <ImageButton
-                android:id="@+id/bn_workouts"
-                android:layout_width="190dp"
-                android:layout_height="127dp"
-                android:layout_column="0"
-                android:layout_margin="5dp"
-                android:layout_row="0"
-                android:background="@drawable/wod"
-                android:onClick="setWorkouts"
-                android:text="Workouts"
-                android:textStyle="bold" />
+                android:id="@+id/bn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="11dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="?android:attr/actionModeCloseDrawable" />
 
-            <ImageButton
-                android:id="@+id/btnMap"
-                android:layout_width="190dp"
-                android:layout_height="127dp"
+        </RelativeLayout>
 
-                android:layout_column="0"
-                android:layout_margin="5dp"
-                android:layout_row="1"
-                android:background="@drawable/images"
-                android:text="Health Spots"
-                android:textStyle="bold" />
-
-        </GridLayout>
-
-        <ImageButton
-            android:id="@+id/bn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="12dp"
-            app:srcCompat="?android:attr/actionModeCloseDrawable" />
-
-        <TextView
-            android:id="@+id/textView_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/bn_back"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="12dp"
-            android:text="Choose One!"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/colorAccent"
-            android:textSize="65sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
+
+    </ScrollView>

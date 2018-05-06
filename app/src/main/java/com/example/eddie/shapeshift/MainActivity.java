@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStartbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InputCalcActivity.class));
+                startActivity(new Intent(MainActivity.this, HomepageActivity.class));
             }
         });
 

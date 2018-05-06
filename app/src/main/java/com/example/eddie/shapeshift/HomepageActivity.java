@@ -39,7 +39,7 @@ public class HomepageActivity extends AppCompatActivity {
 
 
         healthtrack = (ImageButton) findViewById(R.id.bn_Log);
-        recipes = (ImageButton) findViewById(R.id.bn_recipes);
+        //recipes = (ImageButton) findViewById(R.id.bn_recipes);
         workouts = (ImageButton) findViewById(R.id.bn_workouts);
         map = (ImageButton) findViewById(R.id.btnMap);
         back = (ImageButton) findViewById(R.id.bn_back);
@@ -49,7 +49,7 @@ public class HomepageActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomepageActivity.this, InputCalcActivity.class));
+                startActivity(new Intent(HomepageActivity.this, MainActivity.class));
 
             }
         });
@@ -79,6 +79,15 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+            ImageButton log = (ImageButton) findViewById(R.id.bn_Log);
+            log.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(HomepageActivity.this, InputCalcActivity.class);
+                    startActivity(intent);
+                }
+            });
     }
 
     public boolean isServicesOK(){
