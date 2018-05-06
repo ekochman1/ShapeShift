@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorButtonNormal">
+    android:background="#454446">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,19 +32,25 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/textView_What_is_BMR"
             android:layout_marginTop="320dp"
             android:padding="8dp"
             android:text="Below 18.5	              Underweight
-18.5 – 24.9	              Normal or Healthy Weight
-25.0 – 29.9	              Overweight
-30.0 and Above	      Obese"
             android:textStyle="bold" />
 
 
+        </LinearLayout>
+
     </RelativeLayout>
+
 </ScrollView>
