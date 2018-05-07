@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DeleteUserFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/title4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="     ShapeShift"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="#eb6c6c"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="50dp"
+        android:text="Delete Log"
+        android:textSize="24sp" />
+
+</LinearLayout>
+
+    <EditText
+        android:id="@+id/IDtext"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:inputType="number"
+        android:layout_marginTop="50dp"
+        android:hint="ID" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="100dp"
+        android:text="Delete Log" />
+
+
+
+
+
+
+</LinearLayout>

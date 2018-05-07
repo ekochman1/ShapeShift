@@ -76,6 +76,16 @@ public class InputCalcActivity extends AppCompatActivity  {
             }
         });
 
+        Button log = (Button) findViewById(R.id.bn_skip2);
+
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(InputCalcActivity.this, LogActivity.class));
+
+            }
+        });
+
 
         final Spinner mySpinner = (Spinner) findViewById(R.id.activity_input);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputCalcActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray( R.array.activity));
