@@ -5,4 +5,26 @@
     android:layout_height="match_parent"
     android:background="#454446">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="10dp"
+        android:text=" The waist-to-height ratio of a person is defined as the person’s waist circumference, divided by the person’s height. The WHtR is a measure of the distribution of body fat. Higher values of WHtR indicate higher risk of obesity-related cardiovascular diseases; it is correlated with abdominal obesity."
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView_What_is_BMR2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:text="What is WHtR?"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </RelativeLayout>

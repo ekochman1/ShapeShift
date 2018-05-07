@@ -20,7 +20,7 @@ import android.widget.Toast;
  * Created by Eddie on 4/11/18.
  */
 
-public class InputCalcActivity extends AppCompatActivity {
+public class InputCalcActivity extends AppCompatActivity  {
 
     //private RadioButton male;
     //private RadioButton female;

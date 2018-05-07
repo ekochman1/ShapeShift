@@ -23,6 +23,7 @@ public class CalcResultsActivity extends AppCompatActivity {
     private static final String LOG = "CalcResultsActivity";
 
      Button add;
+     Button log;
      Button delete;
      Button Viewlog;
      Button update;
@@ -44,10 +45,10 @@ public class CalcResultsActivity extends AppCompatActivity {
 
         //add = (Button) findViewById(R.id.add_bn);
         delete = (Button) findViewById(R.id.delete_bn);
+        log = (Button) findViewById(R.id.save_bn);
         //Viewlog = (Button) findViewById(R.id.logview_bn);
         Cam = (ImageButton) findViewById(R.id.imageButton_Cam);
         CamImage = (ImageView) findViewById(R.id.imageView_Cam);
-        date = (EditText) findViewById(R.id.editText_date);
         myDB = new DatabaseHelperActivity(this);
         bmi = (ImageButton) findViewById(R.id.imageButton_BMI);
         bmr = (ImageButton) findViewById(R.id.imageButton_BMR);
@@ -69,7 +70,7 @@ public class CalcResultsActivity extends AppCompatActivity {
         selectedBMI = receivedIntent.getStringExtra("bmi");
 
         //set the text to show the current selected name
-        date.setText(selectedBMI);
+        //date.setText(selectedBMI);
 
         bmi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +99,14 @@ public class CalcResultsActivity extends AppCompatActivity {
                 startActivity(new Intent(CalcResultsActivity.this, tdeepop.class));
             }
         });
+
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CalcResultsActivity.this, LogActivity.class));
+            }
+        });
+
 
 
         //ActionBar actionBar = getSupportActionBar();
